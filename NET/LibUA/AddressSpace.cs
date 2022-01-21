@@ -69,12 +69,33 @@ namespace LibUA
 					}
 
 					return new NodeId(nsIdx, idx);
-				}
+				} else if (vstrType.StartsWith("guid="))
+                {
+					var guidString = vstrType.Substring(7);
+					var buffer = ToHexBytes(guidString);
+					return new NodeId(nsIdx, buffer, NodeIdNetType.Guid);
+                } else if (vstrType.StartsWith("bs="))
+                {
+                    var bs = vstrType.Substring(5);
+					var buffer = ToHexBytes(bs);
+					return new NodeId(nsIdx, buffer, NodeIdNetType.ByteString);
+                }
 
 				return null;
 			}
 
-			public NodeId(UInt32 NumericIdentifier)
+            public static byte[] ToHexBytes(string hexString)
+            {
+                hexString = hexString.Replace(" ", "");
+                if ((hexString.Length % 2) != 0)
+                    hexString += " ";
+                byte[] returnBytes = new byte[hexString.Length / 2];
+                for (int i = 0; i < returnBytes.Length; i++)
+                    returnBytes[i] = Convert.ToByte(hexString.Substring(i * 2, 2), 16);
+                return returnBytes;
+            }
+
+            public NodeId(UInt32 NumericIdentifier)
 			{
 				this.NamespaceIndex = 0;
 				this.NumericIdentifier = NumericIdentifier;
