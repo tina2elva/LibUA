@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LibUA</RootNamespace>
     <AssemblyName>LibUA</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
@@ -54,56 +54,7 @@
     <Compile Include="ILogger.cs" />
     <Compile Include="MemoryBufferExtensions.cs" />
     <Compile Include="NetDispatcher.cs" />
-    <Compile Include="Security.Cryptography\AesCng.cs" />
-    <Compile Include="Security.Cryptography\AuthenticatedAes.cs" />
-    <Compile Include="Security.Cryptography\AuthenticatedAesCng.cs" />
-    <Compile Include="Security.Cryptography\AuthenticatedSymmetricAlgorithm.cs" />
-    <Compile Include="Security.Cryptography\BCryptAuthenticatedSymmetricAlgorithm.cs" />
-    <Compile Include="Security.Cryptography\BCryptAuthenticatedSymmetricCryptoTransform.cs" />
-    <Compile Include="Security.Cryptography\BCryptHMAC.cs" />
-    <Compile Include="Security.Cryptography\BCryptNative.cs" />
-    <Compile Include="Security.Cryptography\BCryptPBKDF2.cs" />
-    <Compile Include="Security.Cryptography\BCryptSymmetricAlgorithm.cs" />
-    <Compile Include="Security.Cryptography\BCryptSymmetricCryptoTransform.cs" />
-    <Compile Include="Security.Cryptography\BlockPaddingMethod.cs" />
-    <Compile Include="Security.Cryptography\CapiNative.cs" />
-    <Compile Include="Security.Cryptography\CngAlgorithm2.cs" />
-    <Compile Include="Security.Cryptography\CngChainingMode.cs" />
-    <Compile Include="Security.Cryptography\CngKeyExtensionMethods.cs" />
-    <Compile Include="Security.Cryptography\CngProvider2.cs" />
-    <Compile Include="Security.Cryptography\CngProviderCollection.cs" />
-    <Compile Include="Security.Cryptography\CngProviderExtensionMethods.cs" />
-    <Compile Include="Security.Cryptography\CryptoConfig2.cs" />
-    <Compile Include="Security.Cryptography\GlobalSuppressions.cs" />
-    <Compile Include="Security.Cryptography\HMACSHA256Cng.cs" />
-    <Compile Include="Security.Cryptography\HMACSHA384Cng.cs" />
-    <Compile Include="Security.Cryptography\HMACSHA512Cng.cs" />
-    <Compile Include="Security.Cryptography\IAuthenticatedCryptoTransform.cs" />
-    <Compile Include="Security.Cryptography\ICngAlgorithm.cs" />
-    <Compile Include="Security.Cryptography\ICngAsymmetricAlgorithm.cs" />
-    <Compile Include="Security.Cryptography\ICngSymmetricAlgorithm.cs" />
-    <Compile Include="Security.Cryptography\ICryptoTransform2.cs" />
-    <Compile Include="Security.Cryptography\NCryptNative.cs" />
-    <Compile Include="Security.Cryptography\Oid2.cs" />
-    <Compile Include="Security.Cryptography\RNGCng.cs" />
-    <Compile Include="Security.Cryptography\RSACng.cs" />
-    <Compile Include="Security.Cryptography\RSAPKCS1SHA256SignatureDescription.cs" />
-    <Compile Include="Security.Cryptography\TripleDESCng.cs" />
-    <Compile Include="Security.Cryptography\Win32Native.cs" />
-    <Compile Include="Security.Cryptography\X509Certificates\SafeCertContextHandle.cs" />
-    <Compile Include="Security.Cryptography\X509Certificates\X509AlternateName.cs" />
-    <Compile Include="Security.Cryptography\X509Certificates\X509AlternateNameBlob.cs" />
-    <Compile Include="Security.Cryptography\X509Certificates\X509AlternateNameIPAddress.cs" />
-    <Compile Include="Security.Cryptography\X509Certificates\X509AlternateNameOther.cs" />
-    <Compile Include="Security.Cryptography\X509Certificates\X509AlternateNameString.cs" />
-    <Compile Include="Security.Cryptography\X509Certificates\X509Certificate2ExtensionMethods.cs" />
-    <Compile Include="Security.Cryptography\X509Certificates\X509CertificateCreationParameters.cs" />
-    <Compile Include="Security.Cryptography\X509Certificates\X509CertificateExtensionMethods.cs" />
-    <Compile Include="Security.Cryptography\X509Certificates\X509Native.cs" />
-    <Compile Include="Security.Cryptography\Xml\EncryptedXmlExtensionMethods.cs" />
-    <Compile Include="Security.Cryptography\Xml\TransformFactory.cs" />
-    <Compile Include="Security.Cryptography\Xml\XmlDsigNodeList.cs" />
-    <Compile Include="Security.Cryptography\Xml\XmlDsigXPathWithNamespacesTransform.cs" />
+    <Compile Include="RsaParameterTraits.cs" />
     <Compile Include="Security.cs" />
     <Compile Include="Server.cs" />
     <Compile Include="Types.cs" />

@@ -1,12 +1,13 @@
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using LibUA.Core;
-using LibUA.Security.Cryptography;
-using RSACng = LibUA.Security.Cryptography.RSACng;
+//using LibUA.Security.Cryptography;
+//using RSACng = LibUA.Security.Cryptography.RSACng;
 
 namespace LibUA
 {
@@ -557,10 +558,11 @@ namespace LibUA
 			return System.Text.Encoding.ASCII.GetString(ms.ToArray());
 		}
 
-		public static RSAParameters ImportRSAPrivateKey(string buf)
+        public static RSAParameters ImportRSAPrivateKey(string buf)
 		{
-			var rsa = new RSACng();
-			var parameters = rsa.ExportParameters(false);
+			//var rsa = new RSACng();
+			//var rsa = new RSACryptoServiceProvider();
+			//var parameters = rsa.ExportParameters(false);
 
 			var b64line = string.Join(string.Empty, buf
 				.Split(Environment.NewLine.ToArray())
@@ -568,6 +570,11 @@ namespace LibUA
 				.ToArray());
 
 			var byteArr = Convert.FromBase64String(b64line);
+
+			return DecodeRsaPrivateKey(byteArr);
+			//return rsa.ExportParameters(false);
+
+			/*
 			var ms = new MemoryStream();
 			ms.Write(byteArr, 0, byteArr.Length);
 			ms.Seek(0, SeekOrigin.Begin);
@@ -596,8 +603,10 @@ namespace LibUA
 				parameters.DQ = DecodeIntBigEndian(inputStream);
 				parameters.InverseQ = DecodeIntBigEndian(inputStream);
 			}
+			
 
 			return parameters;
+			*/
 		}
 
 		public static string ExportRSAPublicKey(RSAParameters parameters)
@@ -646,7 +655,8 @@ namespace LibUA
 
 		public static RSAParameters ImportRSAPublicKey(string buf)
 		{
-			var rsa = new RSACng();
+			//var rsa = new RSACng();
+			var rsa = new RSACryptoServiceProvider();
 			var parameters = rsa.ExportParameters(false);
 
 			var b64line = string.Join(string.Empty, buf
