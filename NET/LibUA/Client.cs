@@ -3681,7 +3681,18 @@ namespace LibUA
 			succeeded &= recvHandler.RecvBuf.Decode(out subscrId);
 			// AvailableSequenceNumbers
 			succeeded &= recvHandler.RecvBuf.Decode(out numSeqNums);
-			for (int i = 0; i < numSeqNums; i++) { succeeded &= recvHandler.RecvBuf.Decode(out seqNum); }
+			for (int i = 0; i < numSeqNums; i++) { 
+				succeeded &= recvHandler.RecvBuf.Decode(out seqNum);
+
+				// 当使用SecurityPolicy != None 连接时
+				// 在客户端断开连接时，numSeqNums的值非常大（无效值）
+				// 所以For循环会耗时很久
+				// 实际上succeeded 已经不为true，所以加入判断直接退出循环
+				if (!succeeded)
+                {
+					break;
+                }
+			}
 
 			succeeded &= recvHandler.RecvBuf.Decode(out MoreNotifications);
 			succeeded &= recvHandler.RecvBuf.Decode(out seqNum);
