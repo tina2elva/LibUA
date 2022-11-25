@@ -918,7 +918,9 @@ namespace LibUA
 			if (!recvHandler.RecvBuf.Decode(out config.TL.RemoteConfig.MaxMessageSize)) { return StatusCode.BadDecodingError; }
 			if (!recvHandler.RecvBuf.Decode(out config.TL.RemoteConfig.MaxChunkCount)) { return StatusCode.BadDecodingError; }
 
-			MaximumMessageSize = (int)Math.Min(config.TL.RemoteConfig.MaxMessageSize, MaximumMessageSize);
+			
+			if (config.TL.RemoteConfig.MaxMessageSize !=0)
+				MaximumMessageSize = (int)Math.Min(config.TL.RemoteConfig.MaxMessageSize, MaximumMessageSize);
 
 			//if (!signalled)
 			//{
