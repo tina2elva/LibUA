@@ -1602,7 +1602,7 @@ namespace LibUA
 			Array.Copy(mem.Buffer, mem.Position, arr, 0, Length);
 			mem.Position += (int)Length;
 
-			str = Encoding.ASCII.GetString(arr);
+			str = Encoding.UTF8.GetString(arr);
 			return true;
 		}
 	}
